@@ -1,12 +1,22 @@
 import { Module } from '@nestjs/common';
-import { MemberService } from './services/member.service';
-import { MemberController } from './controller/member.controller';
+import { MemberService } from './services/findMember.service';
+import { MemberController } from './controller/findMember.controller';
 import { MemberRepository } from './outbound-adapter/member.repository';
+import { FINDALL_INBOUND_PORT } from './inbound-port/findMemberInboundPort';
+import { FINDALL_OUTBOUND_PORT } from './outbound-port/findMemberOutboundPort';
 
 @Module({
   controllers: [MemberController],
   providers: [
-    MemberService,
-    MemberRepository]
+    {
+      provide: FINDALL_INBOUND_PORT,
+      useClass: MemberService
+    },
+    {
+      provide: FINDALL_OUTBOUND_PORT,
+      useClass: MemberRepository
+    }
+    ,
+    ]
 })
 export class MemberModule {}
