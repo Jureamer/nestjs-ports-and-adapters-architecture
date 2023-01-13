@@ -1,12 +1,14 @@
-export type FindMemberInboundInputDto = void
+export const FINDALL_INBOUND_PORT = 'FINDALL_INBOUND_PORT';
+
+export type FindMemberInboundInputDto = void;
 export type FindMemberInboundOutputDto = Array<{
-    name: string,
-    email: string,
-    phone: string,
+    name: string;
+    email: string;
+    phone: string;
 }>;
 
-export const FINDALL_INBOUND_PORT = "FINDALL_INBOUND_PORT";
-
 export interface FindMemberInboundPort {
-    execute(param: FindMemberInboundInputDto): Promise<FindMemberInboundOutputDto>
+    execute(
+        param: FindMemberInboundInputDto,
+    ): Promise<FindMemberInboundOutputDto>;
 }

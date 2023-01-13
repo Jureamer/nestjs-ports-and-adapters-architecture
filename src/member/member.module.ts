@@ -6,17 +6,16 @@ import { FINDALL_INBOUND_PORT } from './inbound-port/findMemberInboundPort';
 import { FINDALL_OUTBOUND_PORT } from './outbound-port/findMemberOutboundPort';
 
 @Module({
-  controllers: [MemberController],
-  providers: [
-    {
-      provide: FINDALL_INBOUND_PORT,
-      useClass: MemberService
-    },
-    {
-      provide: FINDALL_OUTBOUND_PORT,
-      useClass: MemberRepository
-    }
-    ,
-    ]
+    controllers: [MemberController],
+    providers: [
+        {
+            provide: FINDALL_INBOUND_PORT,
+            useClass: MemberService,
+        },
+        {
+            provide: FINDALL_OUTBOUND_PORT,
+            useClass: MemberRepository,
+        },
+    ],
 })
 export class MemberModule {}
