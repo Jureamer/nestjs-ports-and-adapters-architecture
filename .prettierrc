@@ -6,7 +6,5 @@
   "printWidth": 120,
   "useEditorConfig": false,
   "arrowParens": "avoid",
-  "endOfLine": "auto"
-
-  
+  "endOfLine": "auto" 
 }
