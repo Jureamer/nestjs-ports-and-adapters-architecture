@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { MemberService } from './services/findMember.service';
+import { FindMemberService } from './services/findMember.service';
 import { MemberController } from './controller/findMember.controller';
 import { MemberRepository } from './outbound-adapter/member.repository';
 import { FINDALL_INBOUND_PORT } from './inbound-port/findMemberInboundPort';
@@ -10,7 +10,7 @@ import { FINDALL_OUTBOUND_PORT } from './outbound-port/findMemberOutboundPort';
     providers: [
         {
             provide: FINDALL_INBOUND_PORT,
-            useClass: MemberService,
+            useClass: FindMemberService,
         },
         {
             provide: FINDALL_OUTBOUND_PORT,
